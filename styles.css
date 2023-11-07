@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+
+    background-color: #cde5d7;
+}
+/* ded6d1 eec6ca ffb7c3 bcf4de */
