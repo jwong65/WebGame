@@ -10,3 +10,7 @@ body{
     background-color: #cde5d7;
 }
 /* ded6d1 eec6ca ffb7c3 bcf4de */
+
+canvas{
+    border: 1px solid black;
+}
