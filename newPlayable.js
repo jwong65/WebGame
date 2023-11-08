@@ -20,19 +20,19 @@ function newPlayableChar(x, y){
 
     function handleDirectionChange(direction){
         if (direction===null){
-            element.src=`assets/Idle.gif`
+            element.src='assets/Idle.gif'
         }
         if(direction==='west'){
             element.src='assets/WalkLeft.gif'
         }
         if(direction==='north'){
-            element.src= ``
+            element.src= `assets/Up.gif`
         }
         if(direction ==='east'){
             element.src='assets/WalkRight.gif'
         }
         if(direction ==='south'){
-            element.src = ``
+            element.src = `assets/Down.gif`
         }
     }
    
