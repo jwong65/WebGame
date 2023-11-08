@@ -1,5 +1,7 @@
 var images =new Array()
-images = ['/assets/Idle1.png','assets/Idle2.png','assets/Idle3.png', 'assets/Idle4.png', 'assets/Idle5.png']
+images = ['/assets/Idle/Idle1.png','assets/Idle/Idle2.png','assets/Idle/Idle3.png', 'assets/Idle/Idle4.png', 'assets/Idle5.png']
+images2 = ['/assets/walk/Right/Walk1.png','/assets/walk/Right/Walk2.png', '/assets/walk/Right/Walk3.png', '/assets/walk/Right/Walk4.png','/assets/walk/Right/Walk5.png', 'Walk6.png']
+images3 = ['/assets/walk/Left/Walk1.png','/assets/walk/Left/Walk2.png','/assets/walk/Left/Walk3.png','/assets/walk/Left/Walk4.png','/assets/walk/Left/Walk5.png','/assets/walk/Left/Walk6.png']
 // Testing animation for idle.
 
 function newPlayableChar(x, y){
@@ -8,34 +10,36 @@ function newPlayableChar(x, y){
     const element = newImage('/assets/Idle1.png')
     // Make the Z Index 1 so it is above other elements.
     element.style.zIndex = 1;
-    element.style.id = 'character'
+    element.style.id = 'character';
+    element.style.width = '80px';
+    element.style.height = '90px';
    
     // if (direction === null){
     //     element.src = './assets/IdleSprite.png'
     // }
-    setInterval('animate()',400);
 
     function handleDirectionChange(direction){
         if (direction===null){
-            element.src = `assets/Idle1.png`
+
         }
         if(direction==='west'){
-            element.src=``
+       
         }
         if(direction==='north'){
             element.src= ``
         }
         if(direction ==='east'){
-            element.src = ``
         }
         if(direction ==='south'){
             element.src = ``
         }
     }
+    setInterval('animate(images)',400);
+   
     move(element).withArrowKeys(x, y, handleDirectionChange)
 }
 var x= 1
-function animate(){
+function animate(images){
     document.getElementById('character').src = images[x]
     x++;
     if (x===4){
