@@ -11,8 +11,8 @@ function newPlayableChar(x, y){
     // Make the Z Index 1 so it is above other elements.
     element.style.zIndex = 1;
     element.style.id = 'character';
-    element.style.width = '55px';
-    element.style.height = '75px';
+    element.style.width = '80px';
+    element.style.height = '90px';
    
     // if (direction === null){
     //     element.src = './assets/IdleSprite.png'
