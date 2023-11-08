@@ -27,10 +27,34 @@ function initalize(){
     // ctx.drawImage(img, width*3, 0, width, height, scaledWidth*3, 0, 32, 64)
     // ctx.drawImage(img, width*4, 0, width, height, scaledWidth*4, 0, 32, 64)
     // ctx.drawImage(img, width*5, 0, width, height, scaledWidth*5, 0, 32, 64)
-    drawFrames(0,0,0,0)
-    drawFrames(1,0, scaledWidth,0)
-    drawFrames(0,0, scaledWidth*2, 0)
-    drawFrames(2,0, scaledWidth*3, 0)
-    drawFrames(3,0, scaledWidth*4, 0)
-    drawFrames(4,0, scaledWidth*5, 0)
+    
+    // drawFrames(0,0,0,0)
+    // drawFrames(1,0, scaledWidth,0)
+    // drawFrames(2,0, scaledWidth*2, 0)
+    // drawFrames(3,0, scaledWidth*3, 0)
+    // drawFrames(4,0, scaledWidth*4, 0)
+    // drawFrames(5,0, scaledWidth*5, 0)
+
+    window.requestAnimationFrame(step)
+
+}
+
+
+const cycleLoop = [0, 1, 0, 2, 3, 4];
+let currentLoopIndex = 0;
+let frameCount = 0;
+
+function step(){
+    // Needs a frameCount
+    frameCount++
+    if(frameCount<15)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // This clears the canvas.
+    drawFrames(cycleLoop[currentLoopIndex], 0, 0, 0);
+    currentLoopIndex++;
+    if (currentLoopIndex >= cycleLoop.length){
+        currentLoopIndex = 0;
+    }
+    window.requestAnimationFrame(step)
+
 }
