@@ -1,4 +1,4 @@
-const playchar= newPlayableChar(100,110)
+const playchar= newPlayableChar(85,110)
 
 
 
