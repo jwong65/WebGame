@@ -15,12 +15,22 @@ const height = 64;
 const scaledWidth= scale* width;
 const scaledHeight = scale*height;
 
+function drawFrames(frameX, frameY, canvasX, canvasY){
+    ctx.drawImage(img, frameX *width, frameY* height, width, height, canvasX, canvasY, scaledWidth, scaledHeight)
+}
+
 
 function initalize(){
-    ctx.drawImage(img, 0,0, width, height, 0, 0, 32, 64 )
-    ctx.drawImage(img, width, 0, width, height, scaledWidth, 0, 32, 64)
-    ctx.drawImage(img, width*2, 0, width, height, scaledWidth*2, 0, 32, 64)
-    ctx.drawImage(img, width*3, 0, width, height, scaledWidth*3, 0, 32, 64)
-    ctx.drawImage(img, width*4, 0, width, height, scaledWidth*4, 0, 32, 64)
-    ctx.drawImage(img, width*5, 0, width, height, scaledWidth*5, 0, 32, 64)
+    // ctx.drawImage(img, 0,0, width, height, 0, 0, 32, 64 )
+    // ctx.drawImage(img, width, 0, width, height, scaledWidth, 0, 32, 64)
+    // ctx.drawImage(img, width*2, 0, width, height, scaledWidth*2, 0, 32, 64)
+    // ctx.drawImage(img, width*3, 0, width, height, scaledWidth*3, 0, 32, 64)
+    // ctx.drawImage(img, width*4, 0, width, height, scaledWidth*4, 0, 32, 64)
+    // ctx.drawImage(img, width*5, 0, width, height, scaledWidth*5, 0, 32, 64)
+    drawFrames(0,0,0,0)
+    drawFrames(1,0, scaledWidth,0)
+    drawFrames(0,0, scaledWidth*2, 0)
+    drawFrames(2,0, scaledWidth*3, 0)
+    drawFrames(3,0, scaledWidth*4, 0)
+    drawFrames(4,0, scaledWidth*5, 0)
 }
