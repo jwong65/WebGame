@@ -7,7 +7,7 @@ images3 = ['/assets/walk/Left/Walk1.png','/assets/walk/Left/Walk2.png','/assets/
 function newPlayableChar(x, y){
     
     // Character image placeholder.
-    const element = newImage('/assets/Idle.gif')
+    const element = newImage('/assets/IdleAnimation.gif')
     // Make the Z Index 1 so it is above other elements.
     element.style.zIndex = 1;
     element.style.id = 'character';
@@ -20,7 +20,7 @@ function newPlayableChar(x, y){
 
     function handleDirectionChange(direction){
         if (direction===null){
-            element.src='assets/Idle.gif'
+            element.src='assets/IdleAnimation.gif'
         }
         if(direction==='west'){
             element.src='assets/WalkLeft.gif'
