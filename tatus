@@ -1,0 +1,96 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 6bccba7..6cebaa3 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -8,6 +8,7 @@[m
+ </head>[m
+ <body> [m
+     <canvas id="gameCan" width="400" height="400"></canvas>[m
+[32m+[m[32m    <canvas id="fullBody" width="800" height="900"></canvas>[m
+     [m
+     <!--Scripts-->[m
+     <script src="./moveCharacter.js"></script>[m
+[1mdiff --git a/newPlayable.js b/newPlayable.js[m
+[1mindex 580d767..68ea47e 100644[m
+[1m--- a/newPlayable.js[m
+[1m+++ b/newPlayable.js[m
+[36m@@ -1,5 +1,3 @@[m
+[31m-[m
+[31m-[m
+ function newPlayableChar(x, y){[m
+     [m
+     // Character image placeholder.[m
+[36m@@ -31,6 +29,52 @@[m [mfunction newPlayableChar(x, y){[m
+             element.src = `assets/Down.gif`[m
+         }[m
+     }[m
+[31m-   [m
+     move(element).withArrowKeys(x, y, handleDirectionChange)[m
+[32m+[m[32m    // move(element).withArrowKeys(x, y)[m
+[32m+[m[32m}[m
+[32m+[m[32mconst body = document.getElementById('fullBody')[m
+[32m+[m[32mconst ctxx = body.getContext('2d')[m
+[32m+[m
+[32m+[m[32mconst cycleLoops = [0, 1, 2, 3];[m
+[32m+[m[32mlet currentLoopIndexs = 0;[m
+[32m+[m[32mlet frameCounts = 0;[m
+[32m+[m
+[32m+[m[32mconst scales = 2;[m
+[32m+[m[32mconst widths = 32;[m
+[32m+[m[32mconst heights = 32;[m
+[32m+[m[32mconst scaledWidths= scales* widths;[m
+[32m+[m[32mconst scaledHeights = scales*heights;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mlet cimg = new Image()[m
+[32m+[m[32mcimg.src = './assets/spritesheet/Owlet_Monster_Idle_4.png'[m
+[32m+[m[32mcimg.onload = function(){[m
+[32m+[m[32m    idling()[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction idling(){[m[41m  [m
+[32m+[m[32m    drawFramed(0,0,0,0)[m
+[32m+[m[32m    drawFramed(1,0, scaledWidth,0)[m
+[32m+[m[32m    drawFramed(2,0, scaledWidth*2, 0)[m
+[32m+[m[32m    drawFramed(3,0, scaledWidth*3, 0)[m
+[32m+[m[32m    window.requestAnimationFrame(steps)[m
+[32m+[m[32m}[m
+[32m+[m[32mfunction drawFramed(frameX, frameY, canvasX, canvasY){[m
+[32m+[m[32m    ctxx.drawImage(cimg, frameX *widths, frameY* heights, widths, heights, canvasX, canvasY, scaledWidths, scaledHeights)[m
+[32m+[m[32m}[m
+[32m+[m[32mfunction steps(){[m
+[32m+[m[32m    frameCounts++[m
+[32m+[m[32m    // This changes how many frames each so it will only draw after 25 frames pass.[m[41m [m
+[32m+[m[32m    if(frameCounts<25){[m
+[32m+[m[32m        window.requestAnimationFrame(steps);[m
+[32m+[m[32m        return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    frameCounts= 0;[m
+[32m+[m[32m    ctxx.clearRect(0, 0, canvas.width, canvas.height);[m
+[32m+[m[32m    drawFramed(cycleLoops[currentLoopIndexs], 0, 0, 0);[m
+[32m+[m[32m    currentLoopIndexs++;[m
+[32m+[m[32m    if (currentLoopIndexs >= cycleLoops.length){[m
+[32m+[m[32m        currentLoopIndexs = 0;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    window.requestAnimationFrame(steps)[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/spritesheet.js b/spritesheet.js[m
+[1mindex 442406e..3da7d31 100644[m
+[1m--- a/spritesheet.js[m
+[1m+++ b/spritesheet.js[m
+[36m@@ -47,9 +47,12 @@[m [mlet frameCount = 0;[m
+ function step(){[m
+     // Needs a frameCount[m
+     frameCount++[m
+[31m-    if(frameCount<15){[m
+[31m-        window.requestAnimationFrame(step)[m
+[32m+[m[32m    // This changes how many frames each so it will only draw after 25 frames pass.[m[41m [m
+[32m+[m[32m    if(frameCount<25){[m
+[32m+[m[32m        window.requestAnimationFrame(step);[m
+[32m+[m[32m        return;[m
+     }[m
+[32m+[m[32m    frameCount= 0;[m
+     ctx.clearRect(0, 0, canvas.width, canvas.height);[m
+     // This clears the canvas.[m
+     drawFrames(cycleLoop[currentLoopIndex], 0, 0, 0);[m
