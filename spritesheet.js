@@ -47,7 +47,9 @@ let frameCount = 0;
 function step(){
     // Needs a frameCount
     frameCount++
-    if(frameCount<15)
+    if(frameCount<15){
+        window.requestAnimationFrame(step)
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // This clears the canvas.
     drawFrames(cycleLoop[currentLoopIndex], 0, 0, 0);
