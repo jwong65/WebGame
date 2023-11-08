@@ -7,12 +7,12 @@ images3 = ['/assets/walk/Left/Walk1.png','/assets/walk/Left/Walk2.png','/assets/
 function newPlayableChar(x, y){
     
     // Character image placeholder.
-    const element = newImage('/assets/Idle1.png')
+    const element = newImage('/assets/Idle.gif')
     // Make the Z Index 1 so it is above other elements.
     element.style.zIndex = 1;
     element.style.id = 'character';
-    element.style.width = '80px';
-    element.style.height = '90px';
+    element.style.width = '55px';
+    element.style.height = '75px';
    
     // if (direction === null){
     //     element.src = './assets/IdleSprite.png'
@@ -20,21 +20,21 @@ function newPlayableChar(x, y){
 
     function handleDirectionChange(direction){
         if (direction===null){
-
+            element.src=`assets/Idle.gif`
         }
         if(direction==='west'){
-       
+            element.src='assets/WalkLeft.gif'
         }
         if(direction==='north'){
             element.src= ``
         }
         if(direction ==='east'){
+            element.src='assets/WalkRight.gif'
         }
         if(direction ==='south'){
             element.src = ``
         }
     }
-    setInterval('animate(images)',400);
    
     move(element).withArrowKeys(x, y, handleDirectionChange)
 }
