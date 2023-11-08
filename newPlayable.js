@@ -14,13 +14,31 @@ function newPlayableChar(x, y){
     //     element.src = './assets/IdleSprite.png'
     // }
     setInterval('animate()',400);
-    move(element).withArrowKeys(x, y)
+
+    function handleDirectionChange(direction){
+        if (direction===null){
+            element.src = `assets/Idle1.png`
+        }
+        if(direction==='west'){
+            element.src=``
+        }
+        if(direction==='north'){
+            element.src= ``
+        }
+        if(direction ==='east'){
+            element.src = ``
+        }
+        if(direction ==='south'){
+            element.src = ``
+        }
+    }
+    move(element).withArrowKeys(x, y, handleDirectionChange)
 }
 var x= 1
 function animate(){
     document.getElementById('character').src = images[x]
     x++;
-    if (x===5){
+    if (x===4){
         x=1
     }
 }
