@@ -3,7 +3,7 @@
 function newPlayableChar(x, y){
     
     // Character image placeholder.
-    const element = newImage('/assets/Idle.png')
+    const element = newImage('assets/standing.png')
     // Make the Z Index 1 so it is above other elements.
     element.style.zIndex = 1;
     element.style.id = 'character';
