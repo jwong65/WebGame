@@ -78,3 +78,5 @@ function steps(){
     }
     window.requestAnimationFrame(steps)
 }
+
+// https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg

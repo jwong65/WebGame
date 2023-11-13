@@ -35,10 +35,23 @@ function initalize(){
     // drawFrames(4,0, scaledWidth*4, 0)
     // drawFrames(5,0, scaledWidth*5, 0)
 
-    window.requestAnimationFrame(step)
+    // window.requestAnimationFrame(step)
+    window.requestAnimationFrame(initalize)
 
 }
 
+// User Input
+let keyPress = {};
+
+window.addEventListener('keydown', keyDownListener, false)
+window.addEventListener('keyup', keyUpListener, false)
+
+function keyDownListener(event){
+    keyPress[event.key]= true
+}
+function keyUpListener(event){
+    keyPress[event.key]= false
+}
 
 const cycleLoop = [0, 1, 0, 2, 3, 4];
 let currentLoopIndex = 0;
