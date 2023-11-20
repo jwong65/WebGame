@@ -19,7 +19,42 @@ function drawFrames(frameX, frameY, canvasX, canvasY){
     ctx.drawImage(img, frameX *width, frameY* height, width, height, canvasX, canvasY, scaledWidth, scaledHeight)
 }
 
+// User Input
+// let keyPress = {};
 
+// window.addEventListener('keydown', keyDownListener, false)
+// window.addEventListener('keyup', keyUpListener, false)
+
+// function keyDownListener(event){
+//     keyPress[event.key]= true
+// }
+// function keyUpListener(event){
+//     keyPress[event.key]= false
+// }
+
+const cycleLoop = [0, 1, 2, 3, 4];
+let currentLoopIndex = 0;
+let frameCount = 0;
+
+function step(){
+    // Needs a frameCount
+    frameCount++;
+    // This changes how many frames each so it will only draw after 25 frames pass. 
+    if(frameCount<25){
+        window.requestAnimationFrame(step);
+        return;
+    }
+    frameCount= 0;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // This clears the canvas.
+    drawFrames(cycleLoop[currentLoopIndex], 0, 0, 0);
+    currentLoopIndex++;
+    if (currentLoopIndex >= cycleLoop.length){
+        currentLoopIndex = 0;
+    }
+    window.requestAnimationFrame(step)
+
+}
 function initalize(){
     // ctx.drawImage(img, 0,0, width, height, 0, 0, 32, 64 )
     // ctx.drawImage(img, width, 0, width, height, scaledWidth, 0, 32, 64)
@@ -35,44 +70,6 @@ function initalize(){
     // drawFrames(4,0, scaledWidth*4, 0)
     // drawFrames(5,0, scaledWidth*5, 0)
 
-    // window.requestAnimationFrame(step)
-    window.requestAnimationFrame(initalize)
-
-}
-
-// User Input
-let keyPress = {};
-
-window.addEventListener('keydown', keyDownListener, false)
-window.addEventListener('keyup', keyUpListener, false)
-
-function keyDownListener(event){
-    keyPress[event.key]= true
-}
-function keyUpListener(event){
-    keyPress[event.key]= false
-}
-
-const cycleLoop = [0, 1, 0, 2, 3, 4];
-let currentLoopIndex = 0;
-let frameCount = 0;
-
-function step(){
-    // Needs a frameCount
-    frameCount++
-    // This changes how many frames each so it will only draw after 25 frames pass. 
-    if(frameCount<25){
-        window.requestAnimationFrame(step);
-        return;
-    }
-    frameCount= 0;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // This clears the canvas.
-    drawFrames(cycleLoop[currentLoopIndex], 0, 0, 0);
-    currentLoopIndex++;
-    if (currentLoopIndex >= cycleLoop.length){
-        currentLoopIndex = 0;
-    }
     window.requestAnimationFrame(step)
 
 }
