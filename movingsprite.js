@@ -7,14 +7,14 @@ let currentLoop = [0, 1, 2, 3]
 
 
 let chr = new Image();
-chr.src = './assets/spritesheet/Owlet_Monster_Idle_4.png'
+chr.src = './assets/spritesheet/characterSheet.png'
 chr.onload = function(){
     idleFrames();
     window.requestAnimationFrame(idleAnimation)
 }
 
 const charWidth= 32;
-const charHeight = 32;
+const charHeight = 34;
 const charScale = 2;
 
 // https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg
@@ -36,7 +36,7 @@ function idleAnimation(){
     // Set the frame count back to 0.
     frameCounting=0;
     cts.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height)
-    drawingFrame(currentLoop[currentIndex],0,0,0)
+    drawingFrame(currentLoop[currentIndex],1,0,0)
     currentIndex++
 
     if(currentIndex>=currentLoop.length){
