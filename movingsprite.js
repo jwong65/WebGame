@@ -20,6 +20,23 @@ function drawingFrame(frameX, frameY, canvasX, canvasY){
     cts.drawImage(chr, frameX*charWidth, frameY* charHeight, charWidth, charHeight, canvasX, canvasY, charWidth*charScale, charHeight*charScale)
 }
 
+
+// User Input similar to the moveCharacter script
+// Put key presses into an object
+
+let keyPress = {};
+
+window.addEventListener('keydown', keyDownListener, false);
+window.addEventListener('keyup', keyUpListener, false);
+
+function keyDownListener(event){
+    keyPresses[event.key] = true;
+}
+function keyUpListener(event){
+    keyPresses[event.key] =false;
+}
+
+
 function idleAnimation(){
     frameCounting++
     if(frameCounting<10){
