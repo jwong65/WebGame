@@ -40,7 +40,7 @@ function step(){
     // Needs a frameCount
     frameCount++;
     // This changes how many frames each so it will only draw after 25 frames pass. 
-    if(frameCount<25){
+    if(frameCount<15){
         window.requestAnimationFrame(step);
         return;
     }
