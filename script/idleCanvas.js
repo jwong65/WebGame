@@ -33,7 +33,7 @@ function steps(){
         return;
     }
     frameCounts= 0;
-    ctxx.clearRect(0, 0, canvas.width, canvas.height);
+    ctxx.clearRect(0, 0, body.width, body.height);
     drawFramed(cycleLoops[currentLoopIndexs], 0, 0, 0);
     currentLoopIndexs++;
     if (currentLoopIndexs >= cycleLoops.length){
