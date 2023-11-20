@@ -1,6 +1,3 @@
-const spriteWidth = 80;
-const sprightHeight = 90;
-
 const canvas = document.getElementById("gameCan")
 const ctx = canvas.getContext('2d')
 
