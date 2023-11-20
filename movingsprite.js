@@ -1,4 +1,7 @@
-let chr = new Image;
+const backgroundCanvas = document.getElementById("mainCanvas")
+const cts = backgroundCanvas.getContext('2d')
+
+let chr = new Image();
 
 chr.src = './assets/spritesheet/3.png'
 
