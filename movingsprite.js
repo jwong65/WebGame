@@ -9,19 +9,12 @@ let currentLoop = [0, 1, 2, 3]
 let chr = new Image();
 chr.src = './assets/spritesheet/characterSheet.png'
 chr.onload = function(){
-    idleFrames();
     window.requestAnimationFrame(idleAnimation)
 }
 
 const charWidth= 32;
 const charHeight = 34;
 const charScale = 2;
-
-// https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg
-
-function idleFrames(){
-    drawingFrame(0,0,0,0)
-}
 
 function drawingFrame(frameX, frameY, canvasX, canvasY){
     cts.drawImage(chr, frameX*charWidth, frameY* charHeight, charWidth, charHeight, canvasX, canvasY, charWidth*charScale, charHeight*charScale)
@@ -43,5 +36,6 @@ function idleAnimation(){
         currentIndex=0;
     }
     window.requestAnimationFrame(idleAnimation)
-
 }
+
+// https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg
