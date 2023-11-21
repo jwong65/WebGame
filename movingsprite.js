@@ -78,7 +78,7 @@ function gameLoop(){
         positionX += movementSpeed;
     }
     if(keyPress.w || keyPress.ArrowUp ){
-        spriteRow=2;
+        spriteRow=0;
         positionY -= movementSpeed;
     }else if(keyPress.s || keyPress.ArrowDown){
         positionY+=movementSpeed
