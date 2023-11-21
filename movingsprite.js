@@ -34,6 +34,7 @@ let positionY =0;
 window.addEventListener('keydown', keyDownListener, false);
 function keyDownListener(event){
     keyPress[event.key] = true;
+    // console.log(keyPress)
 }
 
 window.addEventListener('keyup', keyUpListener, false);
@@ -68,15 +69,15 @@ function idleAnimation(){
 function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
     // Based on the keypress, the position in Y and X will change
-    if(keyPress.w){
+    if(keyPress.w || keyPress.ArrowUp ){
         positionY -= movementSpeed;
-    }else if(keyPress.s){
+    }else if(keyPress.s || keyPress.ArrowDown){
         positionY+=movementSpeed
     }
-    if(keyPress.a){
+    if(keyPress.a || keyPress.ArrowLeft){
         positionX-= movementSpeed;
     }
-    else if(keyPress.d){
+    else if(keyPress.d ||keyPress.ArrowRight){
         positionX += movementSpeed;
     }
     drawingFrame(currentLoop[currentIndex], 1, positionX, positionY)
