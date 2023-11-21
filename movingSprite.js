@@ -71,18 +71,18 @@ function gameLoop(){
         spriteRow=3
         moveCharacter(-movementSpeed, 0)
     }
-
-    else if(keyPress.d ||keyPress.ArrowRight){
+    if(keyPress.d ||keyPress.ArrowRight){
         spriteRow=2;
         moveCharacter(movementSpeed,0)
     }
     if(keyPress.w || keyPress.ArrowUp ){
         spriteRow=0;
         moveCharacter(0,-movementSpeed)
-    }else if(keyPress.s || keyPress.ArrowDown){
+    }
+    if(keyPress.s || keyPress.ArrowDown){
         moveCharacter(0, movementSpeed)
     }
-    else{
+    if(!(keyPress.w || keyPress.s || keyPress.a || keyPress.d || keyPress.ArrowUp || keyPress.ArrowDown || keyPress.ArrowLeft || keyPress.ArrowRight)){
         // To maintain the idle animation
         spriteRow=1;
     }
