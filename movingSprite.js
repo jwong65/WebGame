@@ -65,6 +65,7 @@ function idleAnimation(){
 
 function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
+    drawBackground();
     // Based on the keypress, the position in Y and X will change, the way it's setup allows for diagonal movement as it tracs north to south first then west to east
     if(keyPress.a || keyPress.ArrowLeft){
         spriteRow=3
