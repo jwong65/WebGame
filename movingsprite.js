@@ -9,6 +9,7 @@ let currentLoop = [0, 1, 2, 3]
 let chr = new Image();
 chr.src = './assets/spritesheet/characterSheet.png'
 chr.onload = function(){
+    window.requestAnimationFrame(gameLoop)
     window.requestAnimationFrame(idleAnimation)
 }
 
@@ -27,40 +28,61 @@ function drawingFrame(frameX, frameY, canvasX, canvasY){
 // Put key presses into an object, this can also be done by tracking specific buttons like in moveCharacter.
 
 let keyPress = {};
+let positionX =0;
+let positionY =0;
 
 window.addEventListener('keydown', keyDownListener, false);
-window.addEventListener('keyup', keyUpListener, false);
-
 function keyDownListener(event){
-    keyPresses[event.key] = true;
+    keyPress[event.key] = true;
 }
+
+window.addEventListener('keyup', keyUpListener, false);
 function keyUpListener(event){
-    keyPresses[event.key] =false;
+    keyPress[event.key] =false;
 }
+
 
 
 function idleAnimation(){
     frameCounting++
-    if(frameCounting<10){
+    if(frameCounting<25){
         window.requestAnimationFrame(idleAnimation);
         return;
     }
     // Set the frame count back to 0.
     frameCounting=0;
     cts.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height)
-    drawingFrame(currentLoop[currentIndex],1,0,0)
+    drawingFrame(currentLoop[currentIndex],1,positionX,positionY)
     currentIndex++
 
     if(currentIndex>=currentLoop.length){
         currentIndex=0;
     }
 
+    window.requestAnimationFrame(idleAnimation)
+
+}
+
+// https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg
+
+function gameLoop(){
+    cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
+    // Based on the keypress, the position in Y and X will change
     if(keyPress.w){
         positionY -= movementSpeed;
     }else if(keyPress.s){
         positionY+=movementSpeed
     }
-    window.requestAnimationFrame(idleAnimation)
+    if(keyPress.a){
+        positionX-= movementSpeed;
+    }
+    else if(keyPress.d){
+        positionX += movementSpeed;
+    }
+    drawingFrame(currentLoop[currentIndex], 1, positionX, positionY)
+    window.requestAnimationFrame(gameLoop)
+
 }
 
-// https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg
+window.requestAnimationFrame(idleAnimation)
+window.requestAnimationFrame(gameLoop)
