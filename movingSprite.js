@@ -64,24 +64,23 @@ function idleAnimation(){
 
 }
 
-// https://dev.to/martyhimmel/moving-a-sprite-sheet-character-with-javascript-3adg
-
 function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
     // Based on the keypress, the position in Y and X will change, the way it's setup allows for diagonal movement as it tracs north to south first then west to east
     if(keyPress.a || keyPress.ArrowLeft){
         spriteRow=3
-        positionX -= movementSpeed;
+        moveCharacter(-movementSpeed, 0)
     }
+
     else if(keyPress.d ||keyPress.ArrowRight){
         spriteRow=2;
-        positionX += movementSpeed;
+        moveCharacter(movementSpeed,0)
     }
     if(keyPress.w || keyPress.ArrowUp ){
         spriteRow=0;
-        positionY -= movementSpeed;
+        moveCharacter(0,-movementSpeed)
     }else if(keyPress.s || keyPress.ArrowDown){
-        positionY+=movementSpeed
+        moveCharacter(0, movementSpeed)
     }
     else{
         // To maintain the idle animation
@@ -90,4 +89,13 @@ function gameLoop(){
     drawingFrame(currentLoop[currentIndex], spriteRow, positionX, positionY)
     window.requestAnimationFrame(gameLoop)
 
+}
+// Keeping the character inside the canvas
+// Also movement put into own function.
+// For example the X positon will be added or subtracted from based on deltaX.
+
+function moveCharacter(deltaX, deltaY){
+    positionX += deltaX
+    positionY += deltaY
+    // if (positionX +deltaX)
 }
