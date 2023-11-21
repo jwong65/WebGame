@@ -52,7 +52,6 @@ function idleAnimation(){
     }
     // Set the frame count back to 0.
     frameCounting=0;
-    cts.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height)
     drawingFrame(currentLoop[currentIndex],spriteRow,positionX,positionY)
     currentIndex++
 
