@@ -30,7 +30,7 @@ function drawingFrame(frameX, frameY, canvasX, canvasY){
 let keyPress = {};
 let positionX =0;
 let positionY =0;
-let direction =1;
+let spriteRow =1;
 
 window.addEventListener('keydown', keyDownListener, false);
 function keyDownListener(event){
@@ -53,7 +53,7 @@ function idleAnimation(){
     // Set the frame count back to 0.
     frameCounting=0;
     cts.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height)
-    drawingFrame(currentLoop[currentIndex],direction,positionX,positionY)
+    drawingFrame(currentLoop[currentIndex],spriteRow,positionX,positionY)
     currentIndex++
 
     if(currentIndex>=currentLoop.length){
@@ -69,25 +69,25 @@ function idleAnimation(){
 function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
     // Based on the keypress, the position in Y and X will change, the way it's setup allows for diagonal movement as it tracs north to south first then west to east
-     if(keyPress.a || keyPress.ArrowLeft){
-        direction=3
-        positionX-= movementSpeed;
+    if(keyPress.a || keyPress.ArrowLeft){
+        spriteRow=3
+        positionX -= movementSpeed;
     }
     else if(keyPress.d ||keyPress.ArrowRight){
+        spriteRow=2;
         positionX += movementSpeed;
-        direction=2;
     }
     if(keyPress.w || keyPress.ArrowUp ){
+        spriteRow=2;
         positionY -= movementSpeed;
-        direction =0;
     }else if(keyPress.s || keyPress.ArrowDown){
         positionY+=movementSpeed
     }
     else{
         // To maintain the idle animation
-        direction=1;
+        spriteRow=1;
     }
-    drawingFrame(currentLoop[currentIndex], direction, positionX, positionY)
+    drawingFrame(currentLoop[currentIndex], spriteRow, positionX, positionY)
     window.requestAnimationFrame(gameLoop)
 
 }
