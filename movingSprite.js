@@ -28,8 +28,9 @@ function drawingFrame(frameX, frameY, canvasX, canvasY){
 // Put key presses into an object, this can also be done by tracking specific buttons like in moveCharacter.
 
 let keyPress = {};
-let positionX =0;
-let positionY =0;
+let positionX = 0;
+let positionY = 500;
+// The 0th row is the climbing animation.
 let spriteRow =1;
 
 window.addEventListener('keydown', keyDownListener, false);
