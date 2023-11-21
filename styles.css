@@ -17,10 +17,10 @@ body{
 --pale-dogwood: #ceb5a7ff; */
 /* ded6d1 eec6ca ffb7c3 bcf4de #cde5d7;*/
 
-canvas{
+/* canvas{
     border: 1px solid black;
 
-}
+} */
 
 /* #mainCanvas{
     width: 100%;
@@ -29,5 +29,8 @@ canvas{
 } */
 
 #gameCan{
-    position: absolute;
+    position: relative;
+    right: 1000px;
+    bottom: 50px;
+    z-index: 1;
 }
