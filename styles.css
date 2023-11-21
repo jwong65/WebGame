@@ -1,5 +1,5 @@
 body{
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: space-evenly;
     
@@ -13,6 +13,7 @@ body{
 
 canvas{
     border: 1px solid black;
+
 }
 
 /* #mainCanvas{
@@ -20,3 +21,7 @@ canvas{
     height: 100%;
     margin: 0;
 } */
+
+#gameCan{
+    position: absolute;
+}
