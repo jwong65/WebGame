@@ -69,19 +69,19 @@ function idleAnimation(){
 function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
     // Based on the keypress, the position in Y and X will change, the way it's setup allows for diagonal movement as it tracs north to south first then west to east
-    if(keyPress.w || keyPress.ArrowUp ){
-        positionY -= movementSpeed;
-        direction =0;
-    }else if(keyPress.s || keyPress.ArrowDown){
-        positionY+=movementSpeed
-    }
-    if(keyPress.a || keyPress.ArrowLeft){
+     if(keyPress.a || keyPress.ArrowLeft){
         direction=3
         positionX-= movementSpeed;
     }
     else if(keyPress.d ||keyPress.ArrowRight){
         positionX += movementSpeed;
         direction=2;
+    }
+    if(keyPress.w || keyPress.ArrowUp ){
+        positionY -= movementSpeed;
+        direction =0;
+    }else if(keyPress.s || keyPress.ArrowDown){
+        positionY+=movementSpeed
     }
     else{
         // To maintain the idle animation
