@@ -6,3 +6,4 @@ Other functions used include [drawImage](https://developer.mozilla.org/en-US/doc
 ### Canvas resources
 Using W3Schools to learn about the Canvas element on webpage. <br />
 HTML Canvas element information with [Game Canvas](https://www.w3schools.com/graphics/game_canvas.asp) and [Canvas Intro](https://www.w3schools.com/graphics/canvas_intro.asp)
+Canvas components [Game Components](https://www.w3schools.com/graphics/game_components.asp) and information how to update the canvas.
