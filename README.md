@@ -5,4 +5,4 @@ Other functions used include [drawImage](https://developer.mozilla.org/en-US/doc
 
 ### Canvas resources
 Using W3Schools to learn about the Canvas element on webpage.
-.getContext('2d) with [https://www.w3schools.com/graphics/game_canvas.asp](Game Canvas)and [https://www.w3schools.com/graphics/canvas_intro.asp](Canvas Intro)
+.getContext('2d) with [https://www.w3schools.com/graphics/game_canvas.asp] (Game Canvas)and [https://www.w3schools.com/graphics/canvas_intro.asp] (Canvas Intro)
