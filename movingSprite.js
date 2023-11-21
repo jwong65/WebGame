@@ -94,8 +94,20 @@ function gameLoop(){
 // Also movement put into own function.
 // For example the X positon will be added or subtracted from based on deltaX.
 
+const canvasWidth = backgroundCanvas.width
+const canvasHeight = backgroundCanvas.height
+
 function moveCharacter(deltaX, deltaY){
-    positionX += deltaX
-    positionY += deltaY
-    // if (positionX +deltaX)
+    // positionX += deltaX
+    // positionY += deltaY
+
+    const newX = positionX+deltaX;
+    const newY = positionY+deltaY;
+    // This if statement checks for if newX(the new position if you were to add onto current X position) or newY are greater than 0, because if they were negative it would be outside the canvas
+    // It also checks if the new position and the addition of either the charHeight/Width depending on the X/Y scale are greater than the height or width of the canvas.
+    // By limiting the movement unless they pass all 4 conditions, the sprite is within the canvas.
+    if(newX>=0 && newX+ (charWidth*charScale)<= canvasWidth && newY>=0 && newY + (charHeight*charScale)<=canvasHeight){
+        positionX = newX
+        positionY = newY
+    }
 }
