@@ -7,9 +7,15 @@ body{
     align-items: center;
     padding: 10px;
 
-    background-color: #cde5d7;
+    background-color: #eaefb1
 }
-/* ded6d1 eec6ca ffb7c3 bcf4de */
+/* Color palette for placeholder: 
+--carrot-orange: #f9a03fff;
+--jasmine: #f7d488ff;
+--cream: #eaefb1ff;
+--nyanza: #e9f7caff;
+--pale-dogwood: #ceb5a7ff; */
+/* ded6d1 eec6ca ffb7c3 bcf4de #cde5d7;*/
 
 canvas{
     border: 1px solid black;

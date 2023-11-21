@@ -9,7 +9,7 @@ function newInventory(){
     // inventory.style.alignItems = 'center'
     // inventory.style.justifyContent = 'space-evenly'
     inventory.style.border = '2px solid black'
-    inventory.style.backgroundColor = 'brown'
+    inventory.style.backgroundColor = '#F7D488'
     // inventory.style.left = '0px'
     // inventory.style.bottom = '0px'
 
