@@ -16,13 +16,15 @@ const charWidth= 32;
 const charHeight = 34;
 const charScale = 2;
 
+const movementSpeed =1;
+
 function drawingFrame(frameX, frameY, canvasX, canvasY){
     cts.drawImage(chr, frameX*charWidth, frameY* charHeight, charWidth, charHeight, canvasX, canvasY, charWidth*charScale, charHeight*charScale)
 }
 
 
 // User Input similar to the moveCharacter script
-// Put key presses into an object
+// Put key presses into an object, this can also be done by tracking specific buttons like in moveCharacter.
 
 let keyPress = {};
 
@@ -51,6 +53,12 @@ function idleAnimation(){
 
     if(currentIndex>=currentLoop.length){
         currentIndex=0;
+    }
+
+    if(keyPress.w){
+        positionY -= movementSpeed;
+    }else if(keyPress.s){
+        positionY+=movementSpeed
     }
     window.requestAnimationFrame(idleAnimation)
 }
