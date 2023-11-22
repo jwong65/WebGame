@@ -8,10 +8,16 @@ let currentLoop = [0, 1, 2, 3]
 
 let chr = new Image();
 chr.src = './assets/spritesheet/characterSheet.png'
-chr.onload = function(){
+window.onload = function(){
     window.requestAnimationFrame(idleAnimation)
     window.requestAnimationFrame(gameLoop)
 }
+
+// let chr2= new Image();
+// chr2.src = './assets/spritesheet/3.png'
+// chr2.onload = function(){
+// }
+
 
 const charWidth= 32;
 const charHeight = 34;
@@ -67,6 +73,7 @@ function idleAnimation(){
 function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
     drawBackground();
+
     // Based on the keypress, the position in Y and X will change, the way it's setup allows for diagonal movement as it tracs north to south first then west to east
     if(keyPress.a || keyPress.ArrowLeft){
         spriteRow=3
