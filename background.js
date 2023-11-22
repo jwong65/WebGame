@@ -9,5 +9,4 @@ function drawObstacle(x, y, width, height){
 function drawBackground(){
     cts.drawImage(backgroundImage, 0, 0, backgroundCanvas.width, backgroundCanvas.height)
 
-    // drawObstacle(100, 200, 50, 50, 'red')
 }   
