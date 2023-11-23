@@ -6,18 +6,17 @@ let currentIndex = 0;
 let currentLoop = [0, 1, 2, 3]
 
 
-let chr = new Image();
+const chr = new Image();
 chr.src = './assets/spritesheet/characterSheet.png'
 window.onload = function(){
     window.requestAnimationFrame(idleAnimation)
     window.requestAnimationFrame(gameLoop)
 }
-
-// let chr2= new Image();
-// chr2.src = './assets/spritesheet/3.png'
-// chr2.onload = function(){
-// }
-
+// This is to determine the center of the canvas.
+const center = {
+    x: canvas.width /2,
+    y: canvas.height /2
+}
 
 const charWidth= 32;
 const charHeight = 34;

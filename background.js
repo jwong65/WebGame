@@ -1,7 +1,9 @@
 const backgroundImage = new Image()
 backgroundImage.src = './assets/backgroundAssets/Summer7.png'
-let obstacleX = 250
-let obstacleY =500
+var obstacleX = 250
+var obstacleY = 500
+var obstacleWidth = 50
+var obstacleHeight = 50
 const obstacleSpeed = 2;
 
 function drawObstacle(x, y, width, height, color){
@@ -16,10 +18,9 @@ function moveObstacle(){
         obstacleX =- 50
     }
 }
-
 function drawBackground(){
     // cts.canvas.width = window.innerWidth
     // cts.canvas.height = window.innerHeight
     cts.drawImage(backgroundImage, 0, 0, backgroundCanvas.width, backgroundCanvas.height)
-    drawObstacle(obstacleX, obstacleY, 50, 50, 'red')
+    drawObstacle(obstacleX, obstacleY, obstacleWidth, obstacleHeight, 'red')
 }   
