@@ -18,6 +18,8 @@ function moveObstacle(){
 }
 
 function drawBackground(){
+    // cts.canvas.width = window.innerWidth
+    // cts.canvas.height = window.innerHeight
     cts.drawImage(backgroundImage, 0, 0, backgroundCanvas.width, backgroundCanvas.height)
     drawObstacle(obstacleX, obstacleY, 50, 50, 'red')
 }   
