@@ -12,12 +12,6 @@ window.onload = function(){
     window.requestAnimationFrame(idleAnimation)
     window.requestAnimationFrame(gameLoop)
 }
-// This is to determine the center of the canvas.
-const center = {
-    x: canvas.width /2,
-    y: canvas.height /2
-}
-
 const charWidth= 32;
 const charHeight = 34;
 const charScale = 2;
@@ -73,7 +67,6 @@ function gameLoop(){
     cts.clearRect(0,0, backgroundCanvas.width, backgroundCanvas.height)
     drawBackground();
     moveObstacle();
-
     // Based on the keypress, the position in Y and X will change, the way it's setup allows for diagonal movement as it tracs north to south first then west to east
     if(keyPress.a || keyPress.ArrowLeft){
         spriteRow=3
